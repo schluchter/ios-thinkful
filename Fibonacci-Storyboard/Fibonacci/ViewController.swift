@@ -13,7 +13,7 @@ class ViewController: UIViewController {
     //MARK: Lifecycle methods
         override func viewDidLoad() {
         super.viewDidLoad()
-        selectedValueLabel!.text = String(Int(self.slider!.value))
+        selectedValueLabel.text = String(Int(self.slider.value))
     }
     
     //MARK: Custom stuff
@@ -27,11 +27,11 @@ class ViewController: UIViewController {
         var resultArray : [Int] = []
         var formattedOutputString = ""
         
-        self.selectedValueLabel!.text = String(Int(slider!.value))
+        self.selectedValueLabel!.text = String(Int(slider.value))
         
-        resultArray = self.fibo.calculateFibonacciNumbers(upTo: Int(slider!.value))
+        resultArray = self.fibo.calculateFibonacciNumbers(upTo: Int(slider.value))
         formattedOutputString = "The Fibonacci sequence for \(Int(slider.value)) is \(resultArray)"
         
-        self.outputTextView?.text = formattedOutputString
+        self.outputTextView.text = formattedOutputString
     }
 }

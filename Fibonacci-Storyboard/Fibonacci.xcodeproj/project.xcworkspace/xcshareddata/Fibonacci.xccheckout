@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>B275BBE6-76AC-49C7-85E1-BB366C53E721</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Fibonacci</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>F6058BE5D40242B69E3EB4F049456F525A58A467</key>
+		<string>github.com:schluchter/ios-thinkful.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Fibonacci-Storyboard/Fibonacci.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>F6058BE5D40242B69E3EB4F049456F525A58A467</key>
+		<string>../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>github.com:schluchter/ios-thinkful.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>F6058BE5D40242B69E3EB4F049456F525A58A467</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>F6058BE5D40242B69E3EB4F049456F525A58A467</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Thinkful-iOS</string>
+		</dict>
+	</array>
+</dict>
+</plist>
