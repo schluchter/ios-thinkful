@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ContactsTableViewController: UITableViewController, UITableViewDataSource, UITableViewDelegate {
+class ContactsTableViewController: UITableViewController, UITableViewDataSource, UITableViewDelegate, dataUpdated {
     
     struct ContactInfo {
         var name: String
@@ -28,6 +28,11 @@ class ContactsTableViewController: UITableViewController, UITableViewDataSource,
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+    }
+    
+    func didUpdateContact(sender: AnyObject, aName: String, aPhoneNumber: String) {
+        var newContact = ContactInfo(name: aName, phoneNumber: aPhoneNumber)
+        listOfContacts.append(newContact)
     }
 
     override func didReceiveMemoryWarning() {
@@ -70,7 +75,8 @@ class ContactsTableViewController: UITableViewController, UITableViewDataSource,
             destination.contactName = selectedRow.name
             destination.contactPhoneNumber = selectedRow.phoneNumber
             
-            
+        } else if segue.identifier == "createNewContact" {
+            (segue.destinationViewController as CreateContactViewController).delegate = self
         }
     }
 }
