@@ -26,12 +26,24 @@ class ContactsTableViewController: UITableViewController, UITableViewDataSource,
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
+        
+        self.navigationItem.leftBarButtonItem = self.editButtonItem()
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+    }
+    
+    override func tableView(tableView: UITableView!, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath!) {
+        if editingStyle == .Delete {
+            listOfContacts.removeAtIndex(indexPath.row)
+            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+        }
+    }
+    
+    override func tableView(tableView: UITableView!, moveRowAtIndexPath sourceIndexPath: NSIndexPath!, toIndexPath destinationIndexPath: NSIndexPath!) {
+        let fromContact = listOfContacts[sourceIndexPath.row]
+        listOfContacts.removeAtIndex(sourceIndexPath.row)
+        listOfContacts.insert(fromContact, atIndex: destinationIndexPath.row)
     }
     
     func didUpdateContact(sender: AnyObject, aName: String, aPhoneNumber: String) {
