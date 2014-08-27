@@ -10,6 +10,10 @@ import UIKit
 
 class ContactsTableViewController: UITableViewController, UITableViewDataSource, UITableViewDelegate, dataUpdated {
     
+    @IBAction func addContact(sender: AnyObject) {
+        self.performSegueWithIdentifier("createNewContact", sender: self)
+    }
+    
     struct ContactInfo {
         var name: String
         var phoneNumber: String
@@ -76,7 +80,7 @@ class ContactsTableViewController: UITableViewController, UITableViewDataSource,
             destination.contactPhoneNumber = selectedRow.phoneNumber
             
         } else if segue.identifier == "createNewContact" {
-            (segue.destinationViewController as CreateContactViewController).delegate = self
+            ((segue.destinationViewController as UINavigationController).viewControllers[0] as CreateContactViewController).delegate = self
         }
     }
 }

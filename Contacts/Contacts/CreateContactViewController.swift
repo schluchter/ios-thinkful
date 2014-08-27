@@ -14,10 +14,19 @@ protocol dataUpdated: NSObjectProtocol {
 
 class CreateContactViewController: UIViewController, UITextFieldDelegate {
     
+    var newName = ""
+    var newPhoneNumber = ""
+    var delegate: dataUpdated?
+    
     @IBOutlet var nameField: UITextField!
     @IBOutlet var phoneNumberField: UITextField!
 
     @IBAction func saveContact(sender: AnyObject) {
+        println(__FUNCTION__)
+        
+        self.newName = nameField.text
+        self.newPhoneNumber = phoneNumberField.text
+
         if (newName != "" && newPhoneNumber != "") {
             self.delegate!.didUpdateContact(self, aName: newName, aPhoneNumber: newPhoneNumber)
         }
@@ -29,11 +38,6 @@ class CreateContactViewController: UIViewController, UITextFieldDelegate {
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     
-    
-    var newName = ""
-    var newPhoneNumber = ""
-    var delegate: dataUpdated?
-
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -48,30 +52,6 @@ class CreateContactViewController: UIViewController, UITextFieldDelegate {
         // Dispose of any resources that can be recreated.
     }
     
-    // MARK: - UITextFieldDelegate methods
-    
-    func textFieldShouldEndEditing(textField: UITextField!) -> Bool {
-        self.textFieldShouldReturn(textField)
-        
-        return true
-    }
-    
-    func textFieldShouldReturn(textField: UITextField!) -> Bool {
-        
-        switch textField.tag {
-        case 1:
-            newName = textField.text
-        case 2:
-            newPhoneNumber = textField.text
-        default:
-            println("Unknown textfield returning")
-        }
-        
-        textField.resignFirstResponder()
-        
-        return true
-    }
-
     /*
     // MARK: - Navigation
 
