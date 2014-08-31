@@ -8,10 +8,14 @@
 
 import Foundation
 
-class FibonacciModel {
+public class FibonacciModel {
+    
+    public init() {}
+    
+    var sequence : [Int] = [1,1]
 
-    func calculateFibonacciNumbers(upTo endOfSequence : Int) -> Array<Int> {
-        var sequence : [Int] = [1,1]
+    public func calculateFibonacciNumbers(upTo endOfSequence : Int) -> Array<Int> {
+
         for number in 2..<endOfSequence {
             var newNum : Int = sequence[number-1] + sequence[number-2]
             sequence.append(newNum)

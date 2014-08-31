@@ -1,15 +1,15 @@
 //
-//  FibonacciTests.swift
-//  FibonacciTests
+//  FibonacciFreshTests.swift
+//  FibonacciFreshTests
 //
-//  Created by Thomas Schluchter on 8/23/14.
+//  Created by Thomas Schluchter on 8/31/14.
 //  Copyright (c) 2014 Thomas Schluchter. All rights reserved.
 //
 
 import UIKit
 import XCTest
 
-class FibonacciTests: XCTestCase {
+class FibonacciFreshTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
@@ -28,9 +28,9 @@ class FibonacciTests: XCTestCase {
     
     func testPerformanceExample() {
         // This is an example of a performance test case.
-//        self.measureBlock() {
-//             Put the code you want to measure the time of here.
-//        }
+        self.measureBlock() {
+            // Put the code you want to measure the time of here.
+        }
     }
     
 }
