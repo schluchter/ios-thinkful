@@ -13,11 +13,15 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <activityIndicatorView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="gray" id="gTb-V6-jU6">
-                                <rect key="frame" x="151" y="227" width="20" height="20"/>
+                                <rect key="frame" x="151" y="274" width="20" height="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </activityIndicatorView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="kgV-P6-BPr">
+                                <rect key="frame" x="131" y="255" width="60" height="60"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="DZW-lN-NvV" customClass="LTMorphingLabel" customModule="Web_Service_Example">
-                                <rect key="frame" x="20" y="178" width="280" height="120"/>
+                                <rect key="frame" x="20" y="187" width="280" height="60"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Heavy" family="Avenir Next" pointSize="26"/>
                                 <color key="textColor" red="0.23524042963981628" green="0.23911672830581665" blue="0.24324575066566467" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -29,6 +33,8 @@
                     <connections>
                         <outlet property="loadingSpinner" destination="gTb-V6-jU6" id="LSu-r9-Vld"/>
                         <outlet property="myNameLabel" destination="DZW-lN-NvV" id="QWQ-Mw-0sR"/>
+                        <outlet property="profilePicture" destination="kgV-P6-BPr" id="aVt-jx-G2q"/>
+                        <outlet property="view" destination="kgV-P6-BPr" id="ws7-Bk-Ro5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
