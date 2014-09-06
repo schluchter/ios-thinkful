@@ -27,6 +27,6 @@ public class FibonacciModel {
         var fib = FibGenerator()
         let order = (endOfSequence < 2 || endOfSequence > 45) ? 0 : endOfSequence
         
-        return (0..<order).map {index in fib.next()! }
+        return (0..<order).map { elephant in fib.next()! }
     }
 }

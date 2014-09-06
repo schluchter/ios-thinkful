@@ -26,30 +26,28 @@ class ViewController: UIViewController {
             let myprofilePictureURL = NSURL(string: "http://graph.facebook.com/schluchter/picture?type=square&width=120&height=120")
             let imageData = NSData(contentsOfURL: myprofilePictureURL)
             
-            NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
+            NSOperationQueue.mainQueue().addOperationWithBlock {
                 self.profilePicture.image = UIImage(data: imageData)
-                self.loadingSpinner.stopAnimating()
                 
                 UIView.animateWithDuration(1.0,
                     animations: {
                     self.profilePicture.alpha = 1.0
                     },
-                    completion: {
-                        (value: Bool) in
+                    completion: { (value: Bool) in
                         println("Animation complete!")
                     }
                 )
-            })
+                self.loadingSpinner.stopAnimating()
+            }
         }
         
         let manager = AFHTTPRequestOperationManager()
         manager.GET("http://graph.facebook.com/schluchter",
             parameters: nil,
             success: { (operation: AFHTTPRequestOperation!, responseObject: AnyObject!) in
-                if let myName = responseObject.valueForKey("name") as? String {
+                if let myName = responseObject.valueForKey("name") as String? {
                     self.myNameLabel.text = ""
                     self.myNameLabel.text = myName
-
                 }
             },
             failure:  { (operation: AFHTTPRequestOperation!, error: NSError!) in
