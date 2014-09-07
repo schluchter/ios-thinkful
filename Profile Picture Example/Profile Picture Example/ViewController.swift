@@ -15,6 +15,7 @@ class ViewController: UIViewController, UISearchBarDelegate, UIScrollViewDelegat
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         self.retrieveInstagramImagesForTag("puppy")
     }
     
@@ -22,18 +23,22 @@ class ViewController: UIViewController, UISearchBarDelegate, UIScrollViewDelegat
         let manager = AFHTTPRequestOperationManager()
         manager.GET("https://api.instagram.com/v1/tags/\(tag.lowercaseString)/media/recent?client_id=32805f7b60c64cbeb1fd3ef674bde061",
             parameters: nil,
-            success: { (operation, response) in
-                if let dataArray: Array<AnyObject> = response.valueForKey("data") as Array? {
+            success: { (operation: AFHTTPRequestOperation!, response: AnyObject!) in
+                if let dataArray = response.valueForKey("data") as? [AnyObject] {
+                    
                     for (index, obj) in enumerate(dataArray) {
                         let dataObject: AnyObject = obj
-                        if let imageURL = dataObject.valueForKeyPath("images.standard_resolution.url") as? String {
-                            let imageView = UIImageView(frame: CGRectMake(0, CGFloat(index*320), 320, 320))
-                            imageView.setImageWithURL(NSURL(imageURL), placeholderImage:nil)
+                        
+                        if let imageURLString = dataObject.valueForKeyPath("images.standard_resolution.url") as? String {
+                            let imageView = UIImageView(frame: CGRectMake(0, CGFloat(320 * index), 320, 320))
+                            let url = NSURL(string: imageURLString)
+                            imageView.setImageWithURL(url)
                             
                             self.scrollView.addSubview(imageView)
                         }
                     }
                 }
+                self.scrollView.contentSize.height = self.scrollView.subviews.last!.frame.maxY
             },
             failure: { (operation: AFHTTPRequestOperation!, error: NSError!) -> Void in
                 println("Error: \(error.localizedDescription)")
@@ -59,5 +64,10 @@ class ViewController: UIViewController, UISearchBarDelegate, UIScrollViewDelegat
         }
         self.scrollView.alpha = 1
         self.retrieveInstagramImagesForTag(searchBar.text)
+    }
+    
+    //MARK: - UIScrollViewDelegate methods
+    func scrollViewDidScroll(scrollview: UIScrollView!) {
+        println("Huzzah!")
     }
 }
