@@ -10,5 +10,6 @@
 #define Profile_Picture_Example_Header_h
 
 #import "AFNetworking.h"
+#import "UIKit+AFNetworking.h"
 
 #endif
